@@ -1,0 +1,98 @@
+{
+  "project_info": {
+    "project_number": "668805955482",
+    "firebase_url": "https://fir-account-1b601.firebaseio.com",
+    "project_id": "fir-account-1b601",
+    "storage_bucket": "fir-account-1b601.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:668805955482:android:bf7b540d5c34bc29a3c423",
+        "android_client_info": {
+          "package_name": "co.ashishsonani.calculatorapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "668805955482-k35juhjb1kf9hhpv3ujdmcu3d41ri7p2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAdEiSES70aKuv1oqVLEYGn3igpWLSeLRw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "668805955482-k35juhjb1kf9hhpv3ujdmcu3d41ri7p2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:668805955482:android:fcdb2a8b85296378a3c423",
+        "android_client_info": {
+          "package_name": "com.example.calculator"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "668805955482-k35juhjb1kf9hhpv3ujdmcu3d41ri7p2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAdEiSES70aKuv1oqVLEYGn3igpWLSeLRw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "668805955482-k35juhjb1kf9hhpv3ujdmcu3d41ri7p2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:668805955482:android:9960a9c991e54614a3c423",
+        "android_client_info": {
+          "package_name": "com.nopalyer.calculator"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "668805955482-k35juhjb1kf9hhpv3ujdmcu3d41ri7p2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAdEiSES70aKuv1oqVLEYGn3igpWLSeLRw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "668805955482-k35juhjb1kf9hhpv3ujdmcu3d41ri7p2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
