@@ -17,7 +17,7 @@
             android:id="@+id/type"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Main"
+            android:text="calculator"
             android:ellipsize="start"
             android:gravity="end"
             android:singleLine="true"

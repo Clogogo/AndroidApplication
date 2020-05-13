@@ -12,29 +12,28 @@
         android:layout_height="match_parent"
         android:layout_gravity="start"
         app:menu="@menu/drawer_menu" />
-<!--
-    </com.google.android.material.navigation.NavigationView>-->
+    <!--
+        </com.google.android.material.navigation.NavigationView>-->
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@android:color/black"
         android:orientation="vertical">
+
         <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:id="@+id/toolbar"
             android:background="@color/pureBlack"
-            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
             android:elevation="4dp"
-            />
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
 
         <!--<FrameLayout
             android:id="@+id/fragment_container"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>-->
-
 
 
         <TextView
@@ -68,10 +67,6 @@
                 android:layout_weight="1"
                 android:orientation="horizontal">
 
-                <Button
-                    android:id="@+id/sin"
-                    style="@style/NumberButtonStyle"
-                    android:text="Sin" />
 
                 <Button
                     android:id="@+id/ce"
@@ -92,6 +87,11 @@
                     android:id="@+id/div"
                     style="@style/NumberButtonStyle"
                     android:text="/" />
+
+                <Button
+                    android:id="@+id/sin"
+                    style="@style/NumberButtonStyle"
+                    android:text="Sin" />
             </LinearLayout>
 
             <LinearLayout
@@ -100,10 +100,6 @@
                 android:layout_weight="1"
                 android:orientation="horizontal">
 
-                <Button
-                    android:id="@+id/cos"
-                    style="@style/NumberButtonStyle"
-                    android:text="Cos" />
 
                 <Button
                     android:id="@+id/seven"
@@ -124,6 +120,12 @@
                     android:id="@+id/mul"
                     style="@style/NumberButtonStyle"
                     android:text="*" />
+
+                <Button
+                    android:id="@+id/cos"
+                    style="@style/NumberButtonStyle"
+                    android:text="Cos" />
+
             </LinearLayout>
 
             <LinearLayout
@@ -132,10 +134,6 @@
                 android:layout_weight="1"
                 android:orientation="horizontal">
 
-                <Button
-                    android:id="@+id/tan"
-                    style="@style/NumberButtonStyle"
-                    android:text="Tan" />
 
                 <Button
                     android:id="@+id/four"
@@ -156,6 +154,12 @@
                     android:id="@+id/minus"
                     style="@style/NumberButtonStyle"
                     android:text="-" />
+
+                <Button
+                    android:id="@+id/tan"
+                    style="@style/NumberButtonStyle"
+                    android:text="Tan" />
+
             </LinearLayout>
 
             <LinearLayout
@@ -164,10 +168,6 @@
                 android:layout_weight="1"
                 android:orientation="horizontal">
 
-                <Button
-                    android:id="@+id/pow"
-                    style="@style/NumberButtonStyle"
-                    android:text="x^y" />
 
                 <Button
                     android:id="@+id/one"
@@ -188,6 +188,11 @@
                     android:id="@+id/plus"
                     style="@style/NumberButtonStyle"
                     android:text="+" />
+
+                <Button
+                    android:id="@+id/pow"
+                    style="@style/NumberButtonStyle"
+                    android:text="x^y" />
             </LinearLayout>
 
             <LinearLayout
@@ -196,11 +201,6 @@
                 android:layout_weight="1"
                 android:orientation="horizontal">
 
-
-                <Button
-                    android:id="@+id/sqroot"
-                    style="@style/NumberButtonStyle"
-                    android:text="sqrt" />
 
                 <Button
                     android:id="@+id/dot"
@@ -215,14 +215,20 @@
                 <Button
                     android:id="@+id/back"
                     style="@style/NumberButtonStyle"
+                    android:gravity="center"
                     android:text="←"
-                    android:textSize="50sp"
-                    android:gravity="center"/>
+                    android:textSize="50sp" />
 
                 <Button
                     android:id="@+id/equals"
                     style="@style/NumberButtonStyle"
                     android:text="=" />
+
+                <Button
+                    android:id="@+id/sqroot"
+                    style="@style/NumberButtonStyle"
+                    android:text="sqrt" />
+
             </LinearLayout>
 
         </LinearLayout>

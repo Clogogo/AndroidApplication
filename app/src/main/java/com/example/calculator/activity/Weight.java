@@ -156,7 +156,8 @@ public class Weight extends AppCompatActivity implements NavigationView.OnNaviga
                 String temp = topLvl.getText().toString();
                 topLvl.setText(btmLvl.getText().toString());
                 btmLvl.setText(temp);
-                k2l = !k2l;
+                if (!k2l) k2l = true;
+                else k2l = false;
                 try {
                     double input = Double.parseDouble(expr.getText().toString());
                     double reslt;

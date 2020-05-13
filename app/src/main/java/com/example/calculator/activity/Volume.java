@@ -41,13 +41,13 @@ public class Volume extends AppCompatActivity implements NavigationView.OnNaviga
         dot = findViewById(R.id.dot);
         back = findViewById(R.id.back);
         equals = findViewById(R.id.equals);
-        //fact = findViewById(R.id.fact);
+
 
 
         //drawer
 
         Toolbar toolbar = findViewById(R.id.toolbar);
-        //setSupportActionBar(toolbar);
+
 
 
         drawerLayout = findViewById(R.id.drawer_layout);

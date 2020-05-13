@@ -17,7 +17,7 @@
 *.ap_
 *.aab
 
-app/
+
 APK_File
 
 # Files for the ART/Dalvik VM

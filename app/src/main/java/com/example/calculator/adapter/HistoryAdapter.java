@@ -34,7 +34,7 @@ public class HistoryAdapter extends FirestoreRecyclerAdapter<dbMiddleware, Histo
         return new HistoryHolder(v);
     }
 
-    class HistoryHolder extends RecyclerView.ViewHolder {
+   public class HistoryHolder extends RecyclerView.ViewHolder {
         TextView inputExpr,result,calcType;
 
         public HistoryHolder(@NonNull View itemView) {
