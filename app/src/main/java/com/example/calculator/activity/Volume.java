@@ -81,67 +81,67 @@ public class Volume extends AppCompatActivity implements NavigationView.OnNaviga
         one.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                appendOnExpr("1",true);
+                appendOnExpr("1");
             }
         });
         two.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                appendOnExpr("2",true);
+                appendOnExpr("2");
             }
         });
         three.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                appendOnExpr("3",true);
+                appendOnExpr("3");
             }
         });
         four.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                appendOnExpr("4",true);
+                appendOnExpr("4");
             }
         });
         five.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                appendOnExpr("5",true);
+                appendOnExpr("5");
             }
         });
         six.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                appendOnExpr("6",true);
+                appendOnExpr("6");
             }
         });
         seven.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                appendOnExpr("7",true);
+                appendOnExpr("7");
             }
         });
         eight.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                appendOnExpr("8",true);
+                appendOnExpr("8");
             }
         });
         nine.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                appendOnExpr("9",true);
+                appendOnExpr("9");
             }
         });
         zero.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                appendOnExpr("0",true);
+                appendOnExpr("0");
             }
         });
         dot.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                appendOnExpr(".",true);
+                appendOnExpr(".");
             }
         });
 
@@ -300,18 +300,12 @@ public class Volume extends AppCompatActivity implements NavigationView.OnNaviga
         super.onDestroy();
     }
 
-    void appendOnExpr(String string , Boolean canClear){
+    void appendOnExpr(String string){
         if(!result.getText().toString().isEmpty()){
             expr.setText("");
         }
 
-        if(canClear){
-            result.setText("");
-            expr.append(string);
-        }else{
-            expr.append(result.getText());
-            expr.append(string);
-            result.setText("");
-        }
+        result.setText("");
+        expr.append(string);
     }
 }

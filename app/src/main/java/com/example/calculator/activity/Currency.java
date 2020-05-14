@@ -151,9 +151,9 @@ public class Currency extends AppCompatActivity implements NavigationView.OnNavi
             public void onClick(View view) {
                 if(bdt2dollar) {
                     topLvl.setText("$");
-                    btmLvl.setText("Tk");
+                    btmLvl.setText("€");
                 } else {
-                    topLvl.setText("Tk");
+                    topLvl.setText("€");
                     btmLvl.setText("$");
                 }
                 bdt2dollar = !bdt2dollar;
@@ -161,9 +161,9 @@ public class Currency extends AppCompatActivity implements NavigationView.OnNavi
                     double input = Double.parseDouble(expr.getText().toString());
                     double reslt;
                     if(bdt2dollar){
-                        reslt = input * 0.012; // Celcious to Faren
+                        reslt = input * 1.03;
                     } else {
-                        reslt = input * 84.50 ;
+                        reslt = input * 0.98 ;
                     }
                     int intres = (int) reslt;
                     if (reslt == intres) {
@@ -209,11 +209,11 @@ public class Currency extends AppCompatActivity implements NavigationView.OnNavi
                     double reslt;
                     String calcType;
                     if(bdt2dollar){
-                        calcType = " (BDT 2 DOLLAR)";
-                        reslt = input * 0.012; // Celcious to Faren
+                        calcType = " (Euro = DOLLAR)";
+                        reslt = input * 0.98; //
                     } else {
-                        calcType = " (DOLLAR 2 BDT)";
-                        reslt = input * 84.50 ;
+                        calcType = " (DOLLAR = Euro)";
+                        reslt = input * 1.03 ;
                     }
                     int intres = (int) reslt;
                     String finalResult;
