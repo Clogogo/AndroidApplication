@@ -5,7 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
-
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Process;
@@ -13,11 +13,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.example.calculator.R;
 import com.example.calculator.utility.dbMiddleware;
 import com.google.android.material.navigation.NavigationView;
-
 import net.objecthunter.exp4j.Expression;
 import net.objecthunter.exp4j.ExpressionBuilder;
 
@@ -27,9 +25,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private DrawerLayout drawerLayout;
     ActionBarDrawerToggle toggle;
 
-    private TextView expr,result,ce,openBrc,closeBrc,div,mul,minus,plus,dot,back,equals;
-    private TextView zero,one,two,three,four,five,six,seven,eight,nine;
-    private TextView sin,cos,tan,pow,sqroot,fact;
+    private TextView expr;
+    private TextView result;
 
 
 
@@ -41,21 +38,21 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         // id linking
         expr = findViewById(R.id.expr);
         result = findViewById(R.id.result);
-        ce = findViewById(R.id.ce);
-        openBrc = findViewById(R.id.openBrc);
-        closeBrc = findViewById(R.id.closeBrc);
-        div = findViewById(R.id.div);
-        mul = findViewById(R.id.mul);
-        minus = findViewById(R.id.minus);
-        plus = findViewById(R.id.plus);
-        dot = findViewById(R.id.dot);
-        back = findViewById(R.id.back);
-        equals = findViewById(R.id.equals);
-        sin = findViewById(R.id.sin);
-        cos = findViewById(R.id.cos);
-        tan = findViewById(R.id.tan);
-        pow = findViewById(R.id.pow);
-        sqroot = findViewById(R.id.sqroot);
+        TextView ce = findViewById(R.id.ce);
+        TextView openBrc = findViewById(R.id.openBrc);
+        TextView closeBrc = findViewById(R.id.closeBrc);
+        TextView div = findViewById(R.id.div);
+        TextView mul = findViewById(R.id.mul);
+        TextView minus = findViewById(R.id.minus);
+        TextView plus = findViewById(R.id.plus);
+        TextView dot = findViewById(R.id.dot);
+        TextView back = findViewById(R.id.back);
+        TextView equals = findViewById(R.id.equals);
+        TextView sin = findViewById(R.id.sin);
+        TextView cos = findViewById(R.id.cos);
+        TextView tan = findViewById(R.id.tan);
+        TextView pow = findViewById(R.id.pow);
+        TextView sqroot = findViewById(R.id.sqroot);
         //fact = findViewById(R.id.fact);
 
         //drawer
@@ -76,22 +73,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);*/
 
 
-
-
-
-
-
-
-        zero = findViewById(R.id.zero);
-        one = findViewById(R.id.one);
-        two = findViewById(R.id.two);
-        three = findViewById(R.id.three);
-        four = findViewById(R.id.four);
-        five = findViewById(R.id.five);
-        six = findViewById(R.id.six);
-        seven = findViewById(R.id.seven);
-        eight = findViewById(R.id.eight);
-        nine = findViewById(R.id.nine);
+        TextView zero = findViewById(R.id.zero);
+        TextView one = findViewById(R.id.one);
+        TextView two = findViewById(R.id.two);
+        TextView three = findViewById(R.id.three);
+        TextView four = findViewById(R.id.four);
+        TextView five = findViewById(R.id.five);
+        TextView six = findViewById(R.id.six);
+        TextView seven = findViewById(R.id.seven);
+        TextView eight = findViewById(R.id.eight);
+        TextView nine = findViewById(R.id.nine);
 
 
 
@@ -259,6 +250,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
 
         equals.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("SetTextI18n")
             @Override
             public void onClick(View view) {
                 try {
