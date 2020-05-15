@@ -1,5 +1,7 @@
 package com.example.calculator;
 
+import com.example.calculator.activity.Temp;
+
 import org.junit.Test;
 
 import static org.junit.Assert.*;

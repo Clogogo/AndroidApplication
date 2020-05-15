@@ -99,12 +99,12 @@
                 android:layout_weight="1"
                 android:orientation="horizontal">
 
-                <TextView
+                <Button
                     android:id="@+id/ce"
                     style="@style/NumberButtonStyle"
                     android:text="CE" />
 
-                <TextView
+                <Button
                     android:id="@+id/back"
                     style="@style/NumberButtonStyle"
                     android:text="←"
@@ -112,7 +112,7 @@
                     android:layout_gravity="center"
                     android:gravity="center_horizontal"/>
 
-                <TextView
+                <Button
                     android:id="@+id/rev"
                     style="@style/NumberButtonStyle"
                     android:text="↻"
@@ -126,17 +126,17 @@
                 android:layout_weight="1"
                 android:orientation="horizontal">
 
-                <TextView
+                <Button
                     android:id="@+id/seven"
                     style="@style/NumberButtonStyle"
                     android:text="7" />
 
-                <TextView
+                <Button
                     android:id="@+id/eight"
                     style="@style/NumberButtonStyle"
                     android:text="8" />
 
-                <TextView
+                <Button
                     android:id="@+id/nine"
                     style="@style/NumberButtonStyle"
                     android:text="9" />
@@ -152,17 +152,17 @@
 
 
 
-                <TextView
+                <Button
                     android:id="@+id/four"
                     style="@style/NumberButtonStyle"
                     android:text="4" />
 
-                <TextView
+                <Button
                     android:id="@+id/five"
                     style="@style/NumberButtonStyle"
                     android:text="5" />
 
-                <TextView
+                <Button
                     android:id="@+id/six"
                     style="@style/NumberButtonStyle"
                     android:text="6" />
@@ -178,17 +178,17 @@
 
 
 
-                <TextView
+                <Button
                     android:id="@+id/one"
                     style="@style/NumberButtonStyle"
                     android:text="1" />
 
-                <TextView
+                <Button
                     android:id="@+id/two"
                     style="@style/NumberButtonStyle"
                     android:text="2" />
 
-                <TextView
+                <Button
                     android:id="@+id/three"
                     style="@style/NumberButtonStyle"
                     android:text="3" />
@@ -202,17 +202,17 @@
                 android:orientation="horizontal">
 
 
-                <TextView
+                <Button
                     android:id="@+id/dot"
                     style="@style/NumberButtonStyle"
                     android:text="." />
 
-                <TextView
+                <Button
                     android:id="@+id/zero"
                     style="@style/NumberButtonStyle"
                     android:text="0" />
 
-                <TextView
+                <Button
                     android:id="@+id/equals"
                     style="@style/NumberButtonStyle"
                     android:text="=" />
