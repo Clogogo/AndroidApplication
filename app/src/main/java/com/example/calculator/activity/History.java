@@ -47,7 +47,6 @@ public class History extends AppCompatActivity implements NavigationView.OnNavig
         //drawer
 
         Toolbar toolbar = findViewById(R.id.toolbar);
-        //setSupportActionBar(toolbar);
 
 
         drawerLayout = findViewById(R.id.drawer_layout);
@@ -62,8 +61,6 @@ public class History extends AppCompatActivity implements NavigationView.OnNavig
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);*/
 
         setupRecycleView();
-
-
 
     }
 

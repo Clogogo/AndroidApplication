@@ -6,6 +6,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Process;
@@ -41,13 +42,11 @@ public class Temp extends AppCompatActivity implements NavigationView.OnNavigati
         dot = findViewById(R.id.dot);
         back = findViewById(R.id.back);
         equals = findViewById(R.id.equals);
-        //fact = findViewById(R.id.fact);
 
 
-        //drawer
 
         Toolbar toolbar = findViewById(R.id.toolbar);
-        //setSupportActionBar(toolbar);
+
 
 
         drawerLayout = findViewById(R.id.drawer_layout);
@@ -55,7 +54,7 @@ public class Temp extends AppCompatActivity implements NavigationView.OnNavigati
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView = findViewById(R.id.nav_view);//navigation bar's item select korer jonno object create
+        NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.bringToFront();
         navigationView.setNavigationItemSelectedListener(this);//enable
         /*
@@ -147,6 +146,7 @@ public class Temp extends AppCompatActivity implements NavigationView.OnNavigati
 
 
         rev.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("SetTextI18n")
             @Override
             public void onClick(View view) {
                 if(c2f) {
@@ -202,6 +202,7 @@ public class Temp extends AppCompatActivity implements NavigationView.OnNavigati
 
 
         equals.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("SetTextI18n")
             @Override
             public void onClick(View view) {
                 try {

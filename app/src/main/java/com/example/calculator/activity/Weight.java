@@ -27,8 +27,6 @@ public class Weight extends AppCompatActivity implements NavigationView.OnNaviga
     private TextView zero,one,two,three,four,five,six,seven,eight,nine;
     private TextView topLvl,btmLvl,rev,sin,cos,tan,pow,sqroot,fact;
 
-    //private Spinner topLvl,btmLvl;
-
     private boolean k2l = true;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,22 +44,16 @@ public class Weight extends AppCompatActivity implements NavigationView.OnNaviga
         //fact = findViewById(R.id.fact);
 
 
-        //drawer
 
         Toolbar toolbar = findViewById(R.id.toolbar);
-        //setSupportActionBar(toolbar);
-
-
         drawerLayout = findViewById(R.id.drawer_layout);
         toggle = new ActionBarDrawerToggle(Weight.this, drawerLayout, toolbar,R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView = findViewById(R.id.nav_view);//navigation bar's item select korer jonno object create
+        NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.bringToFront();
         navigationView.setNavigationItemSelectedListener(this);//enable
-        /*
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);*/
 
 
         zero = findViewById(R.id.zero);

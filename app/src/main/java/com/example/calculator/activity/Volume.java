@@ -6,6 +6,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Process;
@@ -44,7 +45,7 @@ public class Volume extends AppCompatActivity implements NavigationView.OnNaviga
 
 
 
-        //drawer
+
 
         Toolbar toolbar = findViewById(R.id.toolbar);
 
@@ -58,8 +59,6 @@ public class Volume extends AppCompatActivity implements NavigationView.OnNaviga
         NavigationView navigationView = findViewById(R.id.nav_view);//navigation bar's item select korer jonno object create
         navigationView.bringToFront();
         navigationView.setNavigationItemSelectedListener(this);//enable
-        /*
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);*/
 
 
         zero = findViewById(R.id.zero);
@@ -147,6 +146,7 @@ public class Volume extends AppCompatActivity implements NavigationView.OnNaviga
 
 
         rev.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("SetTextI18n")
             @Override
             public void onClick(View view) {
                 if(g2l) {
@@ -202,6 +202,7 @@ public class Volume extends AppCompatActivity implements NavigationView.OnNaviga
 
 
         equals.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("SetTextI18n")
             @Override
             public void onClick(View view) {
                 try {
