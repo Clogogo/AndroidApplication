@@ -9,18 +9,18 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.calculator.R;
-import com.example.calculator.utility.dbMiddleware;
+import com.example.calculator.utility.DbMiddleware;
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 
-public class HistoryAdapter extends FirestoreRecyclerAdapter<dbMiddleware, HistoryAdapter.HistoryHolder> {
+public class HistoryAdapter extends FirestoreRecyclerAdapter<DbMiddleware, HistoryAdapter.HistoryHolder> {
 
-    public HistoryAdapter(@NonNull FirestoreRecyclerOptions<dbMiddleware> options) {
+    public HistoryAdapter(@NonNull FirestoreRecyclerOptions<DbMiddleware> options) {
         super(options);
     }
 
     @Override
-    protected void onBindViewHolder(@NonNull HistoryHolder historyHolder, int i, @NonNull dbMiddleware dbM) {
+    protected void onBindViewHolder(@NonNull HistoryHolder historyHolder, int i, @NonNull DbMiddleware dbM) {
         historyHolder.inputExpr.setText(dbM.getInputExpr());
         historyHolder.result.setText(dbM.getResult());
         historyHolder.calcType.setText(dbM.getCalcType());

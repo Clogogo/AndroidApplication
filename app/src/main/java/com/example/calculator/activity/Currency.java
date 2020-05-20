@@ -15,19 +15,20 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.calculator.R;
-import com.example.calculator.utility.dbMiddleware;
+import com.example.calculator.utility.DbMiddleware;
 import com.google.android.material.navigation.NavigationView;
 
 public class Currency extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private DrawerLayout drawerLayout;
     ActionBarDrawerToggle toggle;
+    private TextView expr, result, ce, openBrc, closeBrc, div, mul, minus, plus, dot, back, equals;
+    private TextView zero, one, two, three, four, five, six, seven, eight, nine;
+    private TextView topLvl, btmLvl, rev, sin, cos, tan, pow, sqroot, fact;
 
-    private TextView expr,result,ce,openBrc,closeBrc,div,mul,minus,plus,dot,back,equals;
-    private TextView zero,one,two,three,four,five,six,seven,eight,nine;
-    private TextView topLvl,btmLvl,rev,sin,cos,tan,pow,sqroot,fact;
 
     private boolean bdt2dollar = true;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -81,67 +82,67 @@ public class Currency extends AppCompatActivity implements NavigationView.OnNavi
         one.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                appendOnExpr("1",true);
+                appendOnExpr("1", true);
             }
         });
         two.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                appendOnExpr("2",true);
+                appendOnExpr("2", true);
             }
         });
         three.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                appendOnExpr("3",true);
+                appendOnExpr("3", true);
             }
         });
         four.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                appendOnExpr("4",true);
+                appendOnExpr("4", true);
             }
         });
         five.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                appendOnExpr("5",true);
+                appendOnExpr("5", true);
             }
         });
         six.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                appendOnExpr("6",true);
+                appendOnExpr("6", true);
             }
         });
         seven.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                appendOnExpr("7",true);
+                appendOnExpr("7", true);
             }
         });
         eight.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                appendOnExpr("8",true);
+                appendOnExpr("8", true);
             }
         });
         nine.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                appendOnExpr("9",true);
+                appendOnExpr("9", true);
             }
         });
         zero.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                appendOnExpr("0",true);
+                appendOnExpr("0", true);
             }
         });
         dot.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                appendOnExpr(".",true);
+                appendOnExpr(".", true);
             }
         });
 
@@ -149,7 +150,7 @@ public class Currency extends AppCompatActivity implements NavigationView.OnNavi
         rev.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(bdt2dollar) {
+                if (bdt2dollar) {
                     topLvl.setText("$");
                     btmLvl.setText("€");
                 } else {
@@ -160,24 +161,24 @@ public class Currency extends AppCompatActivity implements NavigationView.OnNavi
                 try {
                     double input = Double.parseDouble(expr.getText().toString());
                     double reslt;
-                    if(bdt2dollar){
+                    if (bdt2dollar) {
                         reslt = input * 1.03;
                     } else {
-                        reslt = input * 0.98 ;
+                        reslt = input * 0.98;
                     }
+                    reslt = Math.round(reslt*100)/100.0d;
                     int intres = (int) reslt;
                     if (reslt == intres) {
-                        result.setText(Integer.toString(intres));
+                        result.setText(String.valueOf(intres));
                     } else {
-                        result.setText(Double.toString(reslt));
+                        result.setText(String.valueOf(reslt));
+
                     }
                 } catch (Exception e) {
                     result.setText("Invalid Op!");
                 }
             }
         });
-
-
 
 
         //Operators
@@ -193,8 +194,8 @@ public class Currency extends AppCompatActivity implements NavigationView.OnNavi
             @Override
             public void onClick(View view) {
                 String string = expr.getText().toString();
-                if(!string.isEmpty()){
-                    expr.setText(string.substring(0,string.length()-1));
+                if (!string.isEmpty()) {
+                    expr.setText(string.substring(0, string.length() - 1));
                 }
                 result.setText("");
             }
@@ -208,25 +209,26 @@ public class Currency extends AppCompatActivity implements NavigationView.OnNavi
                     double input = Double.parseDouble(expr.getText().toString());
                     double reslt;
                     String calcType;
-                    if(bdt2dollar){
+                    if (bdt2dollar) {
                         calcType = " (Euro = DOLLAR)";
                         reslt = input * 0.98; //
                     } else {
                         calcType = " (DOLLAR = Euro)";
-                        reslt = input * 1.03 ;
+                        reslt = input * 1.03;
                     }
+                    reslt = Math.round(reslt*100)/100.0d;
                     int intres = (int) reslt;
                     String finalResult;
                     if (reslt == intres) {
                         result.setText(Integer.toString(intres));
                         finalResult = Integer.toString(intres);
                     } else {
-                        result.setText(Double.toString(reslt));
+                        result.setText(String.valueOf(reslt));
                         finalResult = Double.toString(reslt);
                     }
 
                     try {
-                        dbMiddleware dbM = new dbMiddleware(expr.getText().toString(), finalResult, "Temperature" + calcType);
+                        DbMiddleware dbM = new DbMiddleware(expr.getText().toString(), finalResult, "Temperature" + calcType);
                         dbM.writeDB();
                         Toast.makeText(Currency.this, "Stored in Database!", Toast.LENGTH_LONG).show();
                     } catch (Exception e) {
@@ -239,15 +241,15 @@ public class Currency extends AppCompatActivity implements NavigationView.OnNavi
         });
     }
 
-    public boolean onOptionsItemSelected(MenuItem Item){
-        if(toggle.onOptionsItemSelected(Item))
+    public boolean onOptionsItemSelected(MenuItem Item) {
+        if (toggle.onOptionsItemSelected(Item))
             return true;
         return super.onContextItemSelected(Item);
     }
 
     @Override
     public void onBackPressed() {
-        if(drawerLayout.isDrawerOpen(GravityCompat.START)){
+        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
             drawerLayout.closeDrawer(GravityCompat.START);
         } else {
             super.onBackPressed();
@@ -256,59 +258,60 @@ public class Currency extends AppCompatActivity implements NavigationView.OnNavi
 
     @Override
     public boolean onNavigationItemSelected(MenuItem menuItem) {
-        if (menuItem.isChecked()){
+        if (menuItem.isChecked()) {
             drawerLayout.closeDrawer(GravityCompat.START);
             return false;
         }
 
         int id = menuItem.getItemId();
 
-        if(id==R.id.nav_standard) {
+        if (id == R.id.nav_standard) {
             /*Toast.makeText(this, "The Temp", Toast.LENGTH_SHORT).show();*/
             Intent intent = new Intent(getApplicationContext(), MainActivity.class);
             startActivity(intent);
-        } else if(id==R.id.nav_temp){
+        } else if (id == R.id.nav_temp) {
             /*Toast.makeText(this, "The Temp", Toast.LENGTH_SHORT).show();*/
             Intent intent = new Intent(getApplicationContext(), Temp.class);
             startActivity(intent);
-        } else if(id==R.id.nav_weight){
+        } else if (id == R.id.nav_weight) {
             Intent intent = new Intent(getApplicationContext(), Weight.class);
             startActivity(intent);
-        } else if(id==R.id.nav_currency){
+        } else if (id == R.id.nav_currency) {
             Intent intent = new Intent(getApplicationContext(), Currency.class);
             startActivity(intent);
-        }else if(id==R.id.nav_length) {
+        } else if (id == R.id.nav_length) {
             Intent intent = new Intent(getApplicationContext(), Length.class);
             startActivity(intent);
-        }  else if(id==R.id.nav_volume){
+        } else if (id == R.id.nav_volume) {
             Intent intent = new Intent(getApplicationContext(), Volume.class);
             startActivity(intent);
-        } else if(id==R.id.nav_us){
+        } else if (id == R.id.nav_us) {
             Intent intent = new Intent(getApplicationContext(), AboutUs.class);
             startActivity(intent);
-        } else if(id==R.id.nav_history) {
+        } else if (id == R.id.nav_history) {
             Intent intent = new Intent(getApplicationContext(), History.class);
             startActivity(intent);
-        } else if(id==R.id.nav_exit){
+        } else if (id == R.id.nav_exit) {
             finish();
         }
         return false;
     }
+
     @Override
     protected void onDestroy() {
         Process.killProcess(Process.myPid());
         super.onDestroy();
     }
 
-    void appendOnExpr(String string , Boolean canClear){
-        if(!result.getText().toString().isEmpty()){
+    void appendOnExpr(String string, Boolean canClear) {
+        if (!result.getText().toString().isEmpty()) {
             expr.setText("");
         }
 
-        if(canClear){
+        if (canClear) {
             result.setText("");
             expr.append(string);
-        }else{
+        } else {
             expr.append(result.getText());
             expr.append(string);
             result.setText("");

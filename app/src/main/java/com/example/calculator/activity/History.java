@@ -16,7 +16,7 @@ import android.widget.TextView;
 
 import com.example.calculator.adapter.HistoryAdapter;
 import com.example.calculator.R;
-import com.example.calculator.utility.dbMiddleware;
+import com.example.calculator.utility.DbMiddleware;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.firestore.CollectionReference;
@@ -68,8 +68,8 @@ public class History extends AppCompatActivity implements NavigationView.OnNavig
     private void setupRecycleView() {
         Query query = histories.orderBy("timeStored", Query.Direction.DESCENDING);
 
-        FirestoreRecyclerOptions<dbMiddleware> options = new FirestoreRecyclerOptions.Builder<dbMiddleware>()
-                .setQuery(query, dbMiddleware.class)
+        FirestoreRecyclerOptions<DbMiddleware> options = new FirestoreRecyclerOptions.Builder<DbMiddleware>()
+                .setQuery(query, DbMiddleware.class)
                 .build();
         adapter = new HistoryAdapter(options);
 

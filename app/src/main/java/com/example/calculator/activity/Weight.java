@@ -15,19 +15,18 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.calculator.R;
-import com.example.calculator.utility.dbMiddleware;
+import com.example.calculator.utility.DbMiddleware;
 import com.google.android.material.navigation.NavigationView;
 
 public class Weight extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private DrawerLayout drawerLayout;
     ActionBarDrawerToggle toggle;
-
-    private TextView expr,result,ce,openBrc,closeBrc,div,mul,minus,plus,dot,back,equals;
-    private TextView zero,one,two,three,four,five,six,seven,eight,nine;
-    private TextView topLvl,btmLvl,rev,sin,cos,tan,pow,sqroot,fact;
-
+    private TextView expr, result, ce, openBrc, closeBrc, div, mul, minus, plus, dot, back, equals;
+    private TextView zero, one, two, three, four, five, six, seven, eight, nine;
+    private TextView topLvl, btmLvl, rev, sin, cos, tan, pow, sqroot, fact;
     private boolean k2l = true;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,13 +40,11 @@ public class Weight extends AppCompatActivity implements NavigationView.OnNaviga
         dot = findViewById(R.id.dot);
         back = findViewById(R.id.back);
         equals = findViewById(R.id.equals);
-        //fact = findViewById(R.id.fact);
-
 
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         drawerLayout = findViewById(R.id.drawer_layout);
-        toggle = new ActionBarDrawerToggle(Weight.this, drawerLayout, toolbar,R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        toggle = new ActionBarDrawerToggle(Weight.this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
 
@@ -140,8 +137,6 @@ public class Weight extends AppCompatActivity implements NavigationView.OnNaviga
         });
 
 
-
-
         rev.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -152,24 +147,23 @@ public class Weight extends AppCompatActivity implements NavigationView.OnNaviga
                 try {
                     double input = Double.parseDouble(expr.getText().toString());
                     double reslt;
-                    if(k2l){
+                    if (k2l) {
                         reslt = 2.2046 * input;
                     } else {
                         reslt = 0.45359 * input;
                     }
+                    reslt = Math.round(reslt*100)/100.0d;
                     int intres = (int) reslt;
                     if (reslt == intres) {
-                        result.setText(Integer.toString(intres));
+                        result.setText(String.valueOf(intres));
                     } else {
-                        result.setText(Double.toString(reslt));
+                        result.setText(String.valueOf(reslt));
                     }
                 } catch (Exception e) {
                     result.setText("Invalid Op!");
                 }
             }
         });
-
-
 
 
         //Operators
@@ -185,8 +179,8 @@ public class Weight extends AppCompatActivity implements NavigationView.OnNaviga
             @Override
             public void onClick(View view) {
                 String string = expr.getText().toString();
-                if(!string.isEmpty()){
-                    expr.setText(string.substring(0,string.length()-1));
+                if (!string.isEmpty()) {
+                    expr.setText(string.substring(0, string.length() - 1));
                 }
                 result.setText("");
             }
@@ -200,25 +194,26 @@ public class Weight extends AppCompatActivity implements NavigationView.OnNaviga
                     double input = Double.parseDouble(expr.getText().toString());
                     double reslt;
                     String calcType;
-                    if(k2l){
+                    if (k2l) {
                         calcType = " (KG 2 Pounds)";
                         reslt = 2.2046 * input;
                     } else {
                         calcType = " (Pounds 2 KG)";
                         reslt = 0.45359 * input;
                     }
+                    reslt = Math.round(reslt*100)/100.0d;
                     int intres = (int) reslt;
                     String finalResult;
                     if (reslt == intres) {
-                        result.setText(Integer.toString(intres));
-                        finalResult = Integer.toString(intres);
+                        result.setText(String.valueOf(intres));
+                        finalResult = String.valueOf(intres);
                     } else {
-                        result.setText(Double.toString(reslt));
-                        finalResult = Double.toString(reslt);
+                        result.setText(String.valueOf(reslt));
+                        finalResult = String.valueOf(reslt);
                     }
 
                     try {
-                        dbMiddleware dbM = new dbMiddleware(expr.getText().toString(), finalResult, "Weight" + calcType);
+                        DbMiddleware dbM = new DbMiddleware(expr.getText().toString(), finalResult, "Weight" + calcType);
                         dbM.writeDB();
                         Toast.makeText(Weight.this, "Stored in Database!", Toast.LENGTH_LONG).show();
                     } catch (Exception e) {
@@ -231,15 +226,15 @@ public class Weight extends AppCompatActivity implements NavigationView.OnNaviga
         });
     }
 
-    public boolean onOptionsItemSelected(MenuItem Item){
-        if(toggle.onOptionsItemSelected(Item))
+    public boolean onOptionsItemSelected(MenuItem Item) {
+        if (toggle.onOptionsItemSelected(Item))
             return true;
         return super.onContextItemSelected(Item);
     }
 
     @Override
     public void onBackPressed() {
-        if(drawerLayout.isDrawerOpen(GravityCompat.START)){
+        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
             drawerLayout.closeDrawer(GravityCompat.START);
         } else {
             super.onBackPressed();
@@ -248,40 +243,40 @@ public class Weight extends AppCompatActivity implements NavigationView.OnNaviga
 
     @Override
     public boolean onNavigationItemSelected(MenuItem menuItem) {
-        if (menuItem.isChecked()){
+        if (menuItem.isChecked()) {
             drawerLayout.closeDrawer(GravityCompat.START);
             return false;
         }
 
         int id = menuItem.getItemId();
 
-        if(id==R.id.nav_standard) {
+        if (id == R.id.nav_standard) {
             /*Toast.makeText(this, "The Temp", Toast.LENGTH_SHORT).show();*/
             Intent intent = new Intent(getApplicationContext(), MainActivity.class);
             startActivity(intent);
-        } else if(id==R.id.nav_temp){
+        } else if (id == R.id.nav_temp) {
             /*Toast.makeText(this, "The Temp", Toast.LENGTH_SHORT).show();*/
             Intent intent = new Intent(getApplicationContext(), Temp.class);
             startActivity(intent);
-        } else if(id==R.id.nav_weight){
+        } else if (id == R.id.nav_weight) {
             Intent intent = new Intent(getApplicationContext(), Weight.class);
             startActivity(intent);
-        }else if(id==R.id.nav_currency){
+        } else if (id == R.id.nav_currency) {
             Intent intent = new Intent(getApplicationContext(), Currency.class);
             startActivity(intent);
-        } else if(id==R.id.nav_length) {
+        } else if (id == R.id.nav_length) {
             Intent intent = new Intent(getApplicationContext(), Length.class);
             startActivity(intent);
-        } else if(id==R.id.nav_volume){
+        } else if (id == R.id.nav_volume) {
             Intent intent = new Intent(getApplicationContext(), Volume.class);
             startActivity(intent);
-        } else if(id==R.id.nav_us){
+        } else if (id == R.id.nav_us) {
             Intent intent = new Intent(getApplicationContext(), AboutUs.class);
             startActivity(intent);
-        } else if(id==R.id.nav_history) {
+        } else if (id == R.id.nav_history) {
             Intent intent = new Intent(getApplicationContext(), History.class);
             startActivity(intent);
-        } else if(id==R.id.nav_exit){
+        } else if (id == R.id.nav_exit) {
             finish();
         }
         return false;
@@ -293,8 +288,8 @@ public class Weight extends AppCompatActivity implements NavigationView.OnNaviga
         super.onDestroy();
     }
 
-    void appendOnExpr(String string){
-        if(!result.getText().toString().isEmpty()){
+    void appendOnExpr(String string) {
+        if (!result.getText().toString().isEmpty()) {
             expr.setText("");
         }
 

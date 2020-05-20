@@ -9,23 +9,23 @@ import java.util.Date;
 
 
 
-public class dbMiddleware {
+public class DbMiddleware {
     private String inputExpr;
     private String result;
     private String calcType;
     private Date timeStored;
 
-    public dbMiddleware() {
+    public DbMiddleware() {
 
     }
 
-    public dbMiddleware(String _inputExpr, String _result) {
+    public DbMiddleware(String _inputExpr, String _result) {
         inputExpr = _inputExpr;
         result = _result;
 
     }
 
-    public dbMiddleware(String _inputExpr, String _result, String _calcType) {
+    public DbMiddleware(String _inputExpr, String _result, String _calcType) {
         inputExpr = _inputExpr;
         result = _result;
         calcType = _calcType;

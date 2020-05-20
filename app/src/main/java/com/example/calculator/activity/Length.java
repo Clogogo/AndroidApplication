@@ -15,7 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.calculator.R;
-import com.example.calculator.utility.dbMiddleware;
+import com.example.calculator.utility.DbMiddleware;
 import com.google.android.material.navigation.NavigationView;
 
 public class Length extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -165,11 +165,12 @@ public class Length extends AppCompatActivity implements NavigationView.OnNaviga
                     } else {
                         reslt =  39.3701 * input ;
                     }
+                    reslt = Math.round(reslt*100)/100.0d;
                     int intres = (int) reslt;
                     if (reslt == intres) {
-                        result.setText(Integer.toString(intres));
+                        result.setText(String.valueOf(intres));
                     } else {
-                        result.setText(Double.toString(reslt));
+                        result.setText(String.valueOf(reslt));
                     }
                 } catch (Exception e) {
                     result.setText("Invalid Op!");
@@ -215,18 +216,19 @@ public class Length extends AppCompatActivity implements NavigationView.OnNaviga
                         calcType = " (meters to inches)";
                         reslt = 39.3701 * input ;
                     }
+                    reslt = Math.round(reslt*100)/100.0d;
                     int intres = (int) reslt;
                     String finalResult;
                     if (reslt == intres) {
-                        result.setText(Integer.toString(intres));
-                        finalResult = Integer.toString(intres);
+                        result.setText(String.valueOf(intres));
+                        finalResult = String.valueOf(intres);
                     } else {
-                        result.setText(Double.toString(reslt));
-                        finalResult = Double.toString(reslt);
+                        result.setText(String.valueOf(reslt));
+                        finalResult = String.valueOf(reslt);
                     }
 
                     try {
-                        dbMiddleware dbM = new dbMiddleware(expr.getText().toString(), finalResult, "Temperature" + calcType);
+                        DbMiddleware dbM = new DbMiddleware(expr.getText().toString(), finalResult, "Temperature" + calcType);
                         dbM.writeDB();
                         Toast.makeText(Length.this, "Stored in Database!", Toast.LENGTH_LONG).show();
                     } catch (Exception e) {

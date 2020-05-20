@@ -16,7 +16,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.calculator.R;
-import com.example.calculator.utility.dbMiddleware;
+import com.example.calculator.utility.DbMiddleware;
 import com.google.android.material.navigation.NavigationView;
 
 public class Temp extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -165,11 +165,12 @@ public class Temp extends AppCompatActivity implements NavigationView.OnNavigati
                     } else {
                         reslt = 5 * (input-32)/9 ;
                     }
+                    reslt = Math.round(reslt*100)/100.0d;
                     int intres = (int) reslt;
                     if (reslt == intres) {
-                        result.setText(Integer.toString(intres));
+                        result.setText(String.valueOf(intres));
                     } else {
-                        result.setText(Double.toString(reslt));
+                        result.setText(String.valueOf(reslt));
                     }
                 } catch (Exception e) {
                     result.setText("Invalid Op!");
@@ -216,18 +217,19 @@ public class Temp extends AppCompatActivity implements NavigationView.OnNavigati
                         calcType = " (Fahrenheit 2 Celsius)";
                         reslt = 5 * (input-32)/9 ;
                     }
+                    reslt = Math.round(reslt*100)/100.0d;
                     int intres = (int) reslt;
                     String finalResult;
                     if (reslt == intres) {
-                        result.setText(Integer.toString(intres));
-                        finalResult = Integer.toString(intres);
+                        result.setText(String.valueOf(intres));
+                        finalResult = String.valueOf(intres);
                     } else {
-                        result.setText(Double.toString(reslt));
-                        finalResult = Double.toString(reslt);
+                        result.setText(String.valueOf(reslt));
+                        finalResult = String.valueOf(reslt);
                     }
 
                     try {
-                        dbMiddleware dbM = new dbMiddleware(expr.getText().toString(), finalResult, "Temperature" + calcType);
+                        DbMiddleware dbM = new DbMiddleware(expr.getText().toString(), finalResult, "Temperature" + calcType);
                         dbM.writeDB();
                         Toast.makeText(Temp.this, "Stored in Database!", Toast.LENGTH_LONG).show();
                     } catch (Exception e) {
