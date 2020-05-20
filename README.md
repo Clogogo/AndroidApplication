@@ -9,7 +9,7 @@
  History gets result from Firbase in real time.
  
  #Videos
-<img src="https://drive.google.com/open?id=1k94qEa308Dcr-GBgc7exFjdREZxTf3Qg" with="300" height="500"/> 
+"https://drive.google.com/open?id=1k94qEa308Dcr-GBgc7exFjdREZxTf3Qg" 
  
 ## [Screenshots]
 <img src="Screenshots/Screenshot_1.jpg" width="300" height="580"/> <img src="Screenshots/Screenshot_2.jpg" width="300" height="580"/> 
