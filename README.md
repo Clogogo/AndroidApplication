@@ -1,4 +1,7 @@
 # Mobile Calculator
+
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/7a757de18fd944f1b4e750343cdcea3c)](https://app.codacy.com/manual/Clogogo/AndroidApplication?utm_source=github.com&utm_medium=referral&utm_content=Clogogo/AndroidApplication&utm_campaign=Badge_Grade_Dashboard)
+
  Android App Scientific Calculator and Converters
  # Technology 
   Recycleview, 
